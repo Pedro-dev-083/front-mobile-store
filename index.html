@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Loja de Celular</title>
+  </head>
+  <body>
+    <header>
+      <p>Loja de Celular</p>
+    </header>
+    <section id="button-container">
+      <div>
+        <button onclick="openModal('create-mobile')">Adicionar novo celular</button>        
+      </div>
+    </section>
+    <section id="mobile-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fabricante</th>
+                    <th>Modelo</th>
+                    <th>Valor (R$)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="mobiles">
+            </tbody>
+        </table>
+    </section>
+    <section id="create-mobile" class="modal">
+      <div class="modal-container">
+        <div id="iconExitContainer">
+            <a id="iconExit" href='javascript:closeModal("create-mobile")'>X</a>
+        </div>            
+        <div class="container container-create">
+            <div>
+                <label for="mobile-battery-power">Potência da Bateria (mAh):</label>
+                <input name="mobile-battery-power" id="mobile-battery-power" />
+            </div>
+            <div>
+              <label for="mobile-blue">Bluetooth:</label>
+              <input type="radio" name="mobile-blue" class="mobile-blue" value="S">Sim</input>
+              <input type="radio" name="mobile-blue" class="mobile-blue" value="" checked>Não</input>
+            </div>
+            <div>
+                <label for="mobile-clock-speed">Velocidade do processador (GHz):</label>
+                <input name="mobile-clock-speed" id="mobile-clock-speed" />
+            </div>
+            <div>
+                <label for="mobile-dual-sim">Dois chips:</label>
+                <input type="radio" name="mobile-dual-sim" class="mobile-dual-sim" value="S">Sim</input>
+                <input type="radio" name="mobile-dual-sim" class="mobile-dual-sim" value="" checked>Não</input>
+            </div>
+            <div>
+                <label for="mobile-fc">Câmera Frontal (Mp):</label>
+                <input name="mobile-fc" id="mobile-fc" />
+            </div>
+            <div>
+                <label for="mobile-four-g">Possui 4G:</label>
+                <input type="radio" name="mobile-four-g" class="mobile-four-g" value="S">Sim</input>
+                <input type="radio" name="mobile-four-g" class="mobile-four-g" value="" checked>Não</input>
+            </div>
+            <div>
+                <label for="mobile-int-memory">Memória Interna (GB):</label>
+                <input name="mobile-int-memory" id="mobile-int-memory" />
+            </div>
+            <div>
+                <label for="mobile-m-dep">Profundidade (cm):</label>
+                <input name="mobile-m-dep" id="mobile-m-dep" />
+            </div>
+            <div>
+                <label for="mobile-manufacturer">Fabricante:</label>
+                <input name="mobile-manufacturer" id="mobile-manufacturer" />
+            </div>
+            <div>
+                <label for="mobile-mobile-wt">Peso (g):</label>
+                <input name="mobile-mobile-wt" id="mobile-mobile-wt" />
+            </div>
+            <div>
+                <label for="mobile-model">Modelo:</label>
+                <input name="mobile-model" id="mobile-model" />
+            </div>
+            <div>
+                <label for="mobile-n-cores">Número de núcleos do processador:</label>
+                <input name="mobile-n-cores" id="mobile-n-cores" />
+            </div>
+            <div>
+                <label for="mobile-pc">Câmera Principal:</label>
+                <input name="mobile-pc" id="mobile-pc" />
+            </div>
+            <div>
+                <label for="mobile-price-final">Preço:</label>
+                <input name="mobile-price-final" id="mobile-price-final" />
+            </div>
+            <div>                
+                <label for="mobile-price-range-predicted" id="mobile-price-range-description">Nível do celular: Não foi predito</label>
+                <input name="mobile-price-range-predicted" id="mobile-price-range-predicted" style="display: none;"/>
+            </div>
+            <div>
+                <label for="mobile-px-height">Altura da Resolução (px):</label>
+                <input name="mobile-px-height" id="mobile-px-height" />
+            </div>
+            <div>
+                <label for="mobile-px-width">Largura da Resolução (px):</label>
+                <input name="mobile-px-width" id="mobile-px-width" />
+            </div>
+            <div>
+                <label for="mobile-ram">Memória RAM (Gb):</label>
+                <input name="mobile-ram" id="mobile-ram" />
+            </div>
+            <div>
+                <label for="mobile-sc-h">Altura da tela (cm):</label>
+                <input name="mobile-sc-h" id="mobile-sc-h" />
+            </div>
+            <div>
+                <label for="mobile-sc-w">Largura da tela (cm):</label>
+                <input name="mobile-sc-w" id="mobile-sc-w" />
+            </div>
+            <div>
+                <label for="mobile-talk-time">Tempo de chamada (h):</label>
+                <input name="mobile-talk-time" id="mobile-talk-time" />
+            </div>
+            <div>
+                <label for="mobile-three-g">Possui 3G:</label>
+                <input type="radio" name="mobile-three-g" class="mobile-three-g" value="S">Sim</input>
+                <input type="radio" name="mobile-three-g" class="mobile-three-g" value="" checked>Não</input>
+            </div>
+            <div>
+                <label for="mobile-touch-screen">Tela sensível ao toque:</label>
+                <input type="radio" name="mobile-touch-screen" class="mobile-touch-screen" value="S">Sim</input>
+                <input type="radio" name="mobile-touch-screen" class="mobile-touch-screen" value="" checked>Não</input>
+            </div>
+            <div>
+                <label for="mobile-wifi">Possui Wifi:</label>
+                <input type="radio" name="mobile-wifi" class="mobile-wifi" value="S">Sim</input>
+                <input type="radio" name="mobile-wifi" class="mobile-wifi" value="" checked>Não</input>
+            </div>
+            <div>
+                <button onclick="predictPriceRange()">Predizer</button>
+                <button onclick="createNewMobile()">Criar</button>
+            </div>
+        </div>        
+      <div>
+    </section>
+    <section id="mobile-modal" class="modal">
+    </section>
+    <footer>      
+      <div>
+        <p id="all-rights-text"></p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
